@@ -1,15 +1,18 @@
 package interfaz;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.time.LocalDate;
 
 public class NuevaMisionPanel extends JPanel {
+    Border border = BorderFactory.createLineBorder(Color.BLACK);
     Font fontTitle = new Font("Arial", Font.BOLD, 20);
     public NuevaMisionPanel() {
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
+        c.insets = new Insets(5, 5, 5, 5);
 
         JLabel nuevaMision = new JLabel("Nueva Mision");
         nuevaMision.setFont(fontTitle);
@@ -49,8 +52,9 @@ public class NuevaMisionPanel extends JPanel {
         c.gridy = 3;
         add(objetivoMisionLabel, c);
 
-        JTextArea objetivoMisionText = new JTextArea();
+        JTextArea objetivoMisionText = new JTextArea(5,15);
         objetivoMisionText.setEditable(true);
+        objetivoMisionText.setBorder(border);
         c.gridx = 1;
         c.gridy = 3;
         add(objetivoMisionText, c);
@@ -101,5 +105,13 @@ public class NuevaMisionPanel extends JPanel {
         add(scrollPane, c);
 
         setVisible(true);
+
+        //TODO : Boton to create new mision
+
+        JButton newMission = new JButton("Nueva Mission");
+        c.gridx = 0;
+        c.gridy = 8;
+        add(newMission, c);
+
     }
 }
