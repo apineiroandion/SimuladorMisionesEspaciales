@@ -20,6 +20,7 @@ public class Ventana extends JFrame {
         add(menu, BorderLayout.WEST);
         //panel
         add(contenedor, BorderLayout.CENTER);
+        contenedor.add(new JLabel("hola"));
         setVisible(true);
     }
     public static JPanel nuevaMision(){
@@ -27,8 +28,11 @@ public class Ventana extends JFrame {
         return contenedor;
     }
     public static void mostrarVentanaNuevaMision(){
+        ventana.remove(contenedor);
         contenedor = nuevaMision();
+        ventana.add(contenedor, BorderLayout.CENTER);
         contenedor.setVisible(true);
+        ventana.validate();
         ventana.repaint();
     }
 }
