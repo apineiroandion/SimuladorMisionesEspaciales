@@ -1,7 +1,13 @@
 package interfaz;
 
+import servicios.CrewMember;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static servicios.Main.crew;
 
 public class NuevoCrewMemberPanel extends JPanel {
     private JLabel newCrewMemberLabel;
@@ -87,7 +93,23 @@ public class NuevoCrewMemberPanel extends JPanel {
         c.gridwidth = 2;
         add(newCrewMemberButton, c);
 
-        //TODO : AÑADIR FUNCIONALIDAD AL BOTON
+        newCrewMemberButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                crew.getCrew().add(new CrewMember(name.getText(),
+                        surname.getText(),
+                        Integer.parseInt(age.getText().toString()),
+                        gender.getText(),
+                        job.getSelectedItem().toString()));
+                name.setText("");
+                surname.setText("");
+                age.setText("");
+                gender.setText("");
+
+                JOptionPane.showMessageDialog(NuevoCrewMemberPanel.this, "Creado tripulante");
+                //TODO : HACER QUE SERIALIZE CREW
+            }
+        });
 
     }
 }

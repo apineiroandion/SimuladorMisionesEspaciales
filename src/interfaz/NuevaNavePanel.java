@@ -1,7 +1,13 @@
 package interfaz;
 
+import servicios.Ship;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static servicios.Main.ships;
 
 public class NuevaNavePanel extends JPanel {
     private JLabel newShipLabel;
@@ -64,7 +70,20 @@ public class NuevaNavePanel extends JPanel {
         c.gridwidth = 2;
         add(addShipButton, c);
 
-        // TODO : AÑADIR FUNCIONALIDAD AL BOTON
+
+        addShipButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ships.getShips().add(new Ship(
+                        Integer.parseInt(shipIDTextField.getText()), shipNameTextField.getText(), shipTypeComboBox.getSelectedItem().toString()
+                ));
+                shipIDTextField.setText("");
+                shipNameTextField.setText("");
+
+                JOptionPane.showMessageDialog( NuevaNavePanel.this, "Nave Creada");
+                //TODO : HACER QUE SERIALIZE SHIPS
+            }
+        });
 
     }
 }
