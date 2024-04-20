@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Crew {
-    ArrayList<Crew> crew = new ArrayList<>();
+    ArrayList<CrewMember> crew = new ArrayList<>();
     public void serializeCrewMemberList(Crew crew) {
         try {
             FileOutputStream fos = new FileOutputStream("crew.ser");
@@ -35,11 +35,11 @@ public class Crew {
     public Crew() {
     }
 
-    public ArrayList<Crew> getCrew() {
+    public ArrayList<CrewMember> getCrew() {
         return crew;
     }
 
-    public void setCrew(ArrayList<Crew> crew) {
+    public void setCrew(ArrayList<CrewMember> crew) {
         this.crew = crew;
     }
 }
