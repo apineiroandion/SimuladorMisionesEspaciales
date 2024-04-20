@@ -53,7 +53,6 @@ public class NuevaMisionPanel extends JPanel {
         c.gridy = 3;
         add(objetivoMisionText, c);
 
-        // TODO : Funcionalidad ComboBox naves
         //Naves Y=4
         JLabel navesLabel = new JLabel("Nave para la Mision");
         c.gridx = 0;
@@ -61,26 +60,26 @@ public class NuevaMisionPanel extends JPanel {
         add(navesLabel, c);
         //Combobox naves
         JComboBox navesComboBox = new JComboBox();
-        c.gridx = 0;
-        c.gridy = 5;
+        c.gridx = 1;
+        c.gridy = 4;
         add(navesComboBox, c);
 
         //Label crew
         JLabel elegirMiembrosMision = new JLabel("Elegir Miembros");
         c.gridx = 0;
-        c.gridy = 6;
+        c.gridy = 5;
         add(elegirMiembrosMision, c);
 
         //Label elegidos
         JLabel miembrosElegidos = new JLabel("Miembros Elegidos");
         c.gridx = 1;
-        c.gridy = 6;
+        c.gridy = 5;
         add(miembrosElegidos, c);
 
         //ComboBox
         JComboBox miembrosComboBox = new JComboBox();
         c.gridx = 0;
-        c.gridy = 7;
+        c.gridy = 6;
         add(miembrosComboBox, c);
 
         //Tabla miembros elegidos
@@ -88,7 +87,7 @@ public class NuevaMisionPanel extends JPanel {
         miembrosTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         miembrosTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         c.gridx = 1;
-        c.gridy = 7;
+        c.gridy = 6;
         add(miembrosTable, c);
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setViewportView(miembrosTable);
@@ -97,15 +96,19 @@ public class NuevaMisionPanel extends JPanel {
         setVisible(true);
 
         c.gridx = 0;
-        c.gridy = 8;
+        c.gridy = 7;
         add(Box.createVerticalStrut(20), c);
 
         JButton newMission = new JButton("Nueva Mission");
         c.gridx = 0;
-        c.gridy = 9;
+        c.gridy = 8;
+        c.gridwidth = 2;
         add(newMission, c);
 
-        //TODO : FUNCIONALIDAD COMBO BOX
+
+        //TODO : FUNCIONALIDAD COMBO BOX NAVES
+        //TODO : FUNCIONALIDAD COMBO BOX TRIPULACION
+        //TODO : FUNCIONALIDAD TABLA
         //TODO : FUNCIONALIDAD BOTON
 
     }

@@ -62,9 +62,24 @@ public class Menu extends JPanel {
         newCrewMember.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ventana.mostrarCrewMember();
+                ventana.mostrarVentanaNuevoCrewMember();
             }
         });
+
+        newShip.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana.mostrarVentanaNuevaNave();
+            }
+        });
+
+
+
+
+
+
+
+
 
         /**
          * BUTTON STYLES
