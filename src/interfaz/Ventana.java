@@ -35,4 +35,16 @@ public class Ventana extends JFrame {
         ventana.validate();
         ventana.repaint();
     }
+    public static JPanel nuevoCrewMember(){
+        JPanel contenedor = new NuevoCrewMemberPanel();
+        return contenedor;
+    }
+    public static void mostrarCrewMember(){
+        ventana.remove(contenedor);
+        contenedor = nuevoCrewMember();
+        ventana.add(contenedor, BorderLayout.CENTER);
+        contenedor.setVisible(true);
+        ventana.validate();
+        ventana.repaint();
+    }
 }

@@ -57,5 +57,12 @@ public class Menu extends JPanel {
                  ventana.mostrarVentanaNuevaMision();
             }
         });
+
+        newCrewMember.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ventana.mostrarCrewMember();
+            }
+        });
     }
 }
