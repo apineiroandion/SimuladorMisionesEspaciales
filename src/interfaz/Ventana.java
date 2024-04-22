@@ -71,4 +71,16 @@ public class Ventana extends JFrame {
         ventana.validate();
         ventana.repaint();
     }
+    public static JPanel nuevaListaNaves(){
+        JPanel contenedor = new ListarNavesPanel();
+        return contenedor;
+    }
+    public static void listarNaves(){
+        ventana.remove(contenedor);
+        contenedor = nuevaListaNaves();
+        ventana.add(contenedor, BorderLayout.CENTER);
+        contenedor.setVisible(true);
+        ventana.validate();
+        ventana.repaint();
+    }
 }

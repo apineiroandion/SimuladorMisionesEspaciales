@@ -79,6 +79,12 @@ public class Menu extends JPanel {
             ventana.listarCrewMembers();
             }
         });
+        listShip.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            ventana.listarNaves();
+            }
+        });
 
 
 
