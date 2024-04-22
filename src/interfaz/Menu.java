@@ -85,6 +85,12 @@ public class Menu extends JPanel {
             ventana.listarNaves();
             }
         });
+        listMissions.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            ventana.listarMisiones();
+            }
+        });
 
 
 

@@ -147,7 +147,7 @@ public class NuevaMisionPanel extends JPanel {
         newMission.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                missions.getMissions().add(new Mission(nombreMision.getText(), LocalDate.now(), objetivoMisionText.getText(),
+                missions.getMissions().add(new Mission(nombreMisionText.getText(), LocalDate.now(), objetivoMisionText.getText(),
                         getShip(navesComboBox.getName()),selectedMembers, LocalDate.now()));
                 JOptionPane.showMessageDialog(null, "Nueva Mision");
             }
