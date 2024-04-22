@@ -3,6 +3,8 @@ package interfaz;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static servicios.Main.missions;
 
@@ -34,7 +36,13 @@ public class ListarMisionesPanel extends JPanel {
         //TODO : BOTON VER
 
         //TODO : AÑADIR COORDENADAS
-
+        addCordinate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CoordenadasVentana coordenadasVentana = new CoordenadasVentana(getMission());
+                coordenadasVentana.setVisible(true);
+            }
+        });
     }
     public DefaultTableModel getData() {
         String[] columnNames = {"Nombre", "FechaIncio", "objetivoMision"};
@@ -48,8 +56,9 @@ public class ListarMisionesPanel extends JPanel {
         }
         return data;
     }
+    //arreglar metodo
     public Integer getMission (){
-        String selection = missionTable.getSelectedRow() + "";
+        String selection = String.valueOf(missionTable.getSelectedRow());
         int id = 0;
         int comprobar = 0;
         for (int i = 0; i < missions.getMissions().size(); i++){
@@ -63,6 +72,6 @@ public class ListarMisionesPanel extends JPanel {
         if (comprobar != 0){
             return id;
         }
-        return null;
+        return id;
     }
 }

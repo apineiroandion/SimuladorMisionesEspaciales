@@ -42,14 +42,17 @@ public class CoordenadasVentana extends JFrame {
         panel.add(zLabel, c);
 
         JTextField xField = new JTextField();
+        xField.setColumns(10);
         c.gridx = 1;
         c.gridy = 0;
         panel.add(xField, c);
         JTextField yField = new JTextField();
+        yField.setColumns(10);
         c.gridx = 1;
         c.gridy = 1;
         panel.add(yField, c);
         JTextField zField = new JTextField();
+        zField.setColumns(10);
         c.gridx = 1;
         c.gridy = 2;
         panel.add(zField, c);
