@@ -1,5 +1,7 @@
 package interfaz;
 
+import servicios.Mission;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -57,21 +59,25 @@ public class ListarMisionesPanel extends JPanel {
         return data;
     }
     //arreglar metodo
-    public Integer getMission (){
-        String selection = String.valueOf(missionTable.getSelectedRow());
-        int id = 0;
-        int comprobar = 0;
-        for (int i = 0; i < missions.getMissions().size(); i++){
-            Object[] object = new Object[]{missions.getMissions().get(i).getName(), missions.getMissions().get(i).getStartDate()
-                    , missions.getMissions().get(i).getObjectiveMission()};
-            if (selection.equals(object[i])){
+    public Integer getMission() {
+        int selectedRowIndex = missionTable.getSelectedRow();
+        if (selectedRowIndex == -1) {
+            // No se ha seleccionado ninguna fila
+            return null;
+        }
+
+        String selection = missionTable.getValueAt(selectedRowIndex, 0).toString(); // Se asume que el nombre de la misión está en la primera columna
+        int id = -1; // El ID de la misión seleccionada
+        for (int i = 0; i < missions.getMissions().size(); i++) {
+            Mission mission = missions.getMissions().get(i);
+            if (selection.equals(mission.getName())) {
                 id = i;
-                comprobar ++;
+                break;
             }
         }
-        if (comprobar != 0){
+        if (id != -1) {
             return id;
         }
-        return id;
+        return null;
     }
 }

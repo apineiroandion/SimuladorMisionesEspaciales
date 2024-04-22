@@ -12,7 +12,7 @@ public class Mission {
     private String objectiveMission;
     private Ship ship;
     private ArrayList<CrewMember> crewMision;
-    private ArrayList<Coordinate> Position;
+    private ArrayList<Coordinate> Position = new ArrayList();
 
     public Mission(String name, LocalDate creationDate, String objectiveMission) {
         this.name = name;
