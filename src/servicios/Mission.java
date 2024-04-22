@@ -11,13 +11,22 @@ public class Mission {
     private LocalDate endDate;
     private String objectiveMission;
     private Ship ship;
-    private Crew crew;
+    private ArrayList<CrewMember> crewMision;
     private HashMap<Integer, Coordinate> Position;
 
     public Mission(String name, LocalDate creationDate, String objectiveMission) {
         this.name = name;
         this.creationDate = creationDate;
         this.objectiveMission = objectiveMission;
+    }
+
+    public Mission(String name, LocalDate creationDate, String objectiveMission, Ship ship, ArrayList<CrewMember> crewMision, LocalDate startDate) {
+        this.name = name;
+        this.creationDate = creationDate;
+        this.objectiveMission = objectiveMission;
+        this.ship = ship;
+        this.crewMision = crewMision;
+        this.startDate = startDate;
     }
 
     public String getName() {
@@ -68,12 +77,12 @@ public class Mission {
         this.ship = ship;
     }
 
-    public Crew getCrew() {
-        return crew;
+    public ArrayList<CrewMember> getCrewMision() {
+        return crewMision;
     }
 
-    public void setCrew(Crew crew) {
-        this.crew = crew;
+    public void setCrewMision(ArrayList<CrewMember> crewMision) {
+        this.crewMision = crewMision;
     }
 
     public HashMap<Integer, Coordinate> getPosition() {
