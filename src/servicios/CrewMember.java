@@ -1,6 +1,8 @@
 package servicios;
 
-public class CrewMember {
+import java.io.Serializable;
+
+public class CrewMember  implements Serializable {
     private String name;
     private String surname;
     private int age;

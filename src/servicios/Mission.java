@@ -1,10 +1,11 @@
 package servicios;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Mission {
+public class Mission  implements Serializable {
     private String name;
     private LocalDate creationDate;
     private LocalDate startDate;
