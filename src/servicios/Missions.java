@@ -3,7 +3,7 @@ package servicios;
 import java.io.*;
 import java.util.ArrayList;
 
-public class Missions {
+public class Missions implements Serializable{
     ArrayList<Mission> missions = new ArrayList<>();
     public Missions() {}
 

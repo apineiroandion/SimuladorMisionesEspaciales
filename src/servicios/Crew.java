@@ -1,12 +1,9 @@
 package servicios;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
-public class Crew {
+public class Crew implements Serializable {
     ArrayList<CrewMember> crew = new ArrayList<>();
     public void serializeCrewMemberList(Crew crew) {
         try {
