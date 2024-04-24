@@ -36,8 +36,14 @@ public class ListarMisionesPanel extends JPanel {
         setVisible(true);
 
         //TODO : BOTON VER
+        ver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VerMisionVentana verMisionVentana = new VerMisionVentana(getMission());
+                verMisionVentana.setVisible(true);
+            }
+        });
 
-        //TODO : AÑADIR COORDENADAS
         addCordinate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
