@@ -1,11 +1,20 @@
 package interfaz;
 
+import servicios.Coordinate;
 import servicios.Mission;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.ArrayList;
 
 import static servicios.Main.missions;
 
@@ -16,9 +25,11 @@ public class VerMisionVentana extends JFrame {
     DefaultTableModel modelo;
     JTable crewTable;
     JScrollPane crewScroll;
+    ArrayList<Coordinate> coordinates;
     public VerMisionVentana(int id) {
         this.id = id;
         this.mision = missions.getMissions().get(id);
+        this.coordinates = mision.getPosition();
         modelo = getModelo();
         crewTable = new JTable(modelo);
         crewScroll = new JScrollPane(crewTable);
@@ -62,7 +73,7 @@ public class VerMisionVentana extends JFrame {
         c.gridy = 1;
         datos.add(objetivoMision, c);
 
-        //TODO : GRAFICA EN EL CENTRO
+        drawGraph(coordinates);
 
         //WEST
         JPanel crew = new JPanel();
@@ -81,6 +92,7 @@ public class VerMisionVentana extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 1;
         crew.add(crewScroll, gbc);
+
 
         add(panel, BorderLayout.CENTER);
 
@@ -101,4 +113,43 @@ public class VerMisionVentana extends JFrame {
         }
         return model;
     }
+
+    // pruebas grafico
+    public void drawGraph(ArrayList<Coordinate> coordinates) {
+        // Creamos una serie XY para almacenar los puntos
+        XYSeries series = new XYSeries("Coordenadas");
+
+        // Agregamos los puntos del ArrayList a la serie XY
+        for (Coordinate coord : coordinates) {
+            series.add(coord.getX(), coord.getY());
+        }
+
+        // Creamos un conjunto de datos XY y agregamos la serie XY
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        dataset.addSeries(series);
+
+        // Creamos el gráfico XY
+        JFreeChart chart = ChartFactory.createScatterPlot(
+                "Gráfico de Coordenadas", // Título del gráfico
+                "X", // Etiqueta del eje X
+                "Y", // Etiqueta del eje Y
+                dataset, // Conjunto de datos
+                PlotOrientation.VERTICAL,
+                true, // Incluir leyenda
+                true, // Usar tooltips
+                false // Usar URLs
+        );
+        // Configuramos el color de los puntos
+        chart.getXYPlot().getRenderer().setSeriesPaint(0, Color.BLUE);
+
+        // Creamos el panel del gráfico y lo mostramos en un JFrame
+        ChartPanel chartPanel = new ChartPanel(chart);
+        JFrame frame = new JFrame("Gráfico de Coordenadas");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.getContentPane().add(chartPanel, BorderLayout.CENTER);
+        frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
 }
