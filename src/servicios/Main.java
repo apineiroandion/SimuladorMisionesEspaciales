@@ -18,4 +18,5 @@ public class Main {
         ventana = new Ventana();
         ventana.setVisible(true);
     }
+    //comentario para probar el cierre de Issues
 }
