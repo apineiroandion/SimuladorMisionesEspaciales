@@ -1,6 +1,8 @@
 package servicios;
 
-public class Ship {
+import java.io.Serializable;
+
+public class Ship  implements Serializable {
     private int id;
     private String shipName;
     private String shipType;

@@ -1,12 +1,9 @@
 package servicios;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
-public class Ships {
+public class Ships implements Serializable {
     ArrayList<Ship> ships = new ArrayList<>();
     public Ships() {}
 

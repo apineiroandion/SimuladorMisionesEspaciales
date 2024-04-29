@@ -81,7 +81,7 @@ public class NuevaNavePanel extends JPanel {
                 shipNameTextField.setText("");
 
                 JOptionPane.showMessageDialog( NuevaNavePanel.this, "Nave Creada");
-                //TODO : HACER QUE SERIALIZE SHIPS
+                ships.serializeShipList(ships);
             }
         });
 

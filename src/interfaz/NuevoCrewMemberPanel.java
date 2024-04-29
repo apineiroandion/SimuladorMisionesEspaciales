@@ -107,7 +107,7 @@ public class NuevoCrewMemberPanel extends JPanel {
                 gender.setText("");
 
                 JOptionPane.showMessageDialog(NuevoCrewMemberPanel.this, "Creado tripulante");
-                //TODO : HACER QUE SERIALIZE CREW
+                crew.serializeCrewMemberList(crew);
             }
         });
 
